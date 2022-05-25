@@ -9,10 +9,12 @@ const TeamManagement = () => {
     <div className={classes.container}>
       <div className={classes.header}>
         <h1>YOUR TEAM FOR THIS TEST</h1>
-        <a href='#'>Team Page</a>
+        <a href='#'><span className={classes.title}>TEAM PAGE</span> <span className="material-icons md-18"> groups </span></a>
       </div>
-      <AddMember />
-      <TeamMembers />
+      <div className={classes.cards}>
+        <AddMember />
+        <TeamMembers />
+      </div>
     </div>
   )
 }

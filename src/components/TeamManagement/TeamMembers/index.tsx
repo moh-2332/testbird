@@ -5,13 +5,14 @@ import classes from '../styles.module.scss'
 
 const TeamMembers = () => {
   return (
-    <div>
+    <React.Fragment>
       <TeamMember />
       <TeamMember />
       <TeamMember />
       <TeamMember />
       <TeamMember />
-    </div>
+      <div className={classes.all}> <span>SHOW ALL</span> <span className="material-icons">expand_more</span></div>
+    </React.Fragment>
   )
 }
 
