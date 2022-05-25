@@ -87,3 +87,27 @@
     cursor: pointer;
   }
 }
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    
+    .header {
+      a {
+        .title {
+          display: none;
+        }
+      }
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      .card-content {
+        padding: 10px;
+      }
+
+    }
+  }
+}
