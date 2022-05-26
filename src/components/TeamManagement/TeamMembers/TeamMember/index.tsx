@@ -7,7 +7,6 @@ import classes from '../../styles.module.scss'
 
 import Icon from '../../../UI/Icon'
 import Card from '../../../UI/Card'
-import Tooltip from '../../../UI/Tooltip'
 import Member from '../../../../models/member'
 
 const TeamMember: React.FC<{ member: Member }> = ({ member }) => {
@@ -22,20 +21,20 @@ const TeamMember: React.FC<{ member: Member }> = ({ member }) => {
     setHovered(false);
   }
 
-  const removeMemberHandler = (id: number) => {
-    dispatch(memberActions.remove(id));
+  const removeMemberHandler = () => {
+    dispatch(memberActions.remove(member.id));
   }
 
   return (
     <Card>
-      <div className={classes['card-content']} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler} onClick={() => removeMemberHandler(member.id)}>
+      <div className={classes['card-content']} onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
         <div className={classes['card-avatar']}>
           {!hovered && <Icon><img className={classes.avatar} src={`avatars/${member.picture}`} /></Icon>}
-          {hovered && <Icon className={classes.remove}><span className="material-icons remove">close</span><Tooltip text="Remove user" /></Icon>}
+          {hovered && <Icon className={classes.remove} tooltipText="Remove user" onClick={removeMemberHandler}><span className="material-icons remove">close</span></Icon>}
         </div>
         <div className={classes['card-text']}>
-          <span className={classes.title}>{member.username}</span>
-          <span className={classes.summary}>{member.role}</span>
+          <div className={classes.title}>{member.role} {member.role === "External" && <span className="material-icons remove md-18">emergency</span>} </div>
+          <span className={classes.summary}>{member.username}</span>
         </div>
       </div>
     </Card >

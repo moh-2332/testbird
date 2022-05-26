@@ -18,15 +18,19 @@ const AddMember = () => {
     dispatch(memberActions.add(selectedOption));
   }
 
+  const addClickHandler = () => {
+    setShowMembersList(true)
+  }
+
   const closeHandler = () => {
     setShowMembersList(false);
   }
 
   return (
     <Card>
-      {!showMembersList && <div className={classes['card-content']} onClick={() => setShowMembersList(true)}>
+      {!showMembersList && <div className={classes['card-content']}>
         <div className={classes['card-avatar']}>
-          <Icon className={classes.add}><span className="material-icons">add</span></Icon>
+          <Icon className={classes.add} onClick={addClickHandler}><span className="material-icons">add</span></Icon>
         </div>
         <div className={classes['card-text']}>
           <span className={`${classes.summary} ${classes.add}`}>Add team member to this test</span>
