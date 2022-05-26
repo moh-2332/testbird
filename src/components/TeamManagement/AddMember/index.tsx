@@ -4,15 +4,9 @@ import classes from '../styles.module.scss'
 import Card from '../../UI/Card'
 import Icon from '../../UI/Icon'
 import DropDown from '../../UI/DropDown'
+import Member from "../../../models/member"
 
 import members from "../../../assets/data.json"
-
-interface Member {
-  id: string,
-  username: string,
-  role?: string,
-  picture?: string
-}
 
 const AddMember = () => {
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
