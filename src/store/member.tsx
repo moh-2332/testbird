@@ -12,7 +12,8 @@ const memberSlice = createSlice({
     initialState: initializeMemberState,
     reducers: {
         add(state, action) {
-            state.members.push(action.payload as Member);
+            if (state.members.some(member => member.id === action.payload.id)) return;
+            state.members.push(action.payload);
         },
         remove(state) { }
     }
