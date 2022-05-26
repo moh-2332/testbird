@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
+import { useDispatch } from "react-redux"
+
+import { memberActions } from "../../../store/member"
 
 import classes from '../styles.module.scss'
 import Card from '../../UI/Card'
 import Icon from '../../UI/Icon'
 import DropDown from '../../UI/DropDown'
-import Member from "../../../models/member"
 
 import members from "../../../assets/data.json"
 
 const AddMember = () => {
-  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
+  const dispatch = useDispatch();
   const [showMembersList, setShowMembersList] = useState(false);
 
   const memberSelectedHandler = (selectedOption: any): void => {
-    console.log(selectedOption);
-    setSelectedMember(selectedOption);
+    dispatch(memberActions.add(selectedOption));
   }
 
   const closeHandler = () => {
@@ -35,8 +36,7 @@ const AddMember = () => {
         options={members}
         id="id"
         label="username"
-        value={selectedMember?.username || ""}
-        title="Select a member ..."
+        value="Select a member ..."
         onOptionSelected={memberSelectedHandler}
         onClose={closeHandler} />}
     </Card >

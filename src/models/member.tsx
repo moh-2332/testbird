@@ -1,5 +1,5 @@
 export default interface Member {
-    id: string,
+    id: number,
     username: string,
     role?: string,
     picture?: string

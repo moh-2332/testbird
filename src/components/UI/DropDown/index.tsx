@@ -7,12 +7,11 @@ interface DropDownProps {
     id: string,
     label: string,
     value: string,
-    title: string,
     onOptionSelected: (value: any) => any,
     onClose: () => void,
 }
 
-const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, title, onOptionSelected, onClose }) => {
+const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, onOptionSelected, onClose }) => {
     const [searchKey, setSearchKey] = useState("");
 
     const optionSelectedHandler = (option: any) => {
@@ -31,7 +30,7 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, title, o
                 <div className={classes["selected-value"]}>
                     <input
                         value={searchKey}
-                        placeholder={value ? value : title}
+                        placeholder={value}
                         onChange={(e) => setSearchKey(e.target.value)} />
                 </div>
                 <div className={classes.close} onClick={onClose}><span className="material-icons md-18 remove">close</span></div>

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import Member from "../models/member";
 
-interface MemberState {
+export interface MemberState {
     members: Array<Member>
 }
 
