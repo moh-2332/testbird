@@ -1,0 +1,55 @@
+import React, { useState } from 'react';
+
+import classes from "./DropDown.module.scss"
+
+interface DropDownProps {
+    options: Array<any>,
+    id: string,
+    label: string,
+    value: string,
+    title: string,
+    onOptionSelected: (value: any) => any,
+    onClose: () => void,
+}
+
+const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, title, onOptionSelected, onClose }) => {
+    const [searchKey, setSearchKey] = useState("");
+
+    const optionSelectedHandler = (option: any) => {
+        onOptionSelected(option)
+        setSearchKey("");
+        onClose();
+    }
+
+    const filter = (options: Array<any>) => {
+        return options.filter(option => option[label].toLowerCase().indexOf(searchKey.toLowerCase()) > -1) || [];
+    }
+
+    return (
+        <div className={classes.dropdown}>
+            <div className={classes.control}>
+                <div className={classes["selected-value"]}>
+                    <input
+                        value={searchKey}
+                        placeholder={value ? value : title}
+                        onChange={(e) => setSearchKey(e.target.value)} />
+                </div>
+                <div className={classes.close} onClick={onClose}><span className="material-icons md-18 remove">close</span></div>
+            </div>
+            <div className={classes.options}>
+                {filter(options).map(option => {
+                    return (
+                        <div
+                            key={option[id]}
+                            className={`${classes.option} ${option[label] === value ? classes.selected : null}`}
+                            onClick={(e) => optionSelectedHandler(option)}>
+                            {option[label]}
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
+    );
+}
+
+export default DropDown;
