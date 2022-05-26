@@ -15,7 +15,9 @@ const memberSlice = createSlice({
             if (state.members.some(member => member.id === action.payload.id)) return;
             state.members.push(action.payload);
         },
-        remove(state) { }
+        remove(state, action) {
+            state.members = state.members.filter(member => member.id !== action.payload);
+        }
     }
 })
 
