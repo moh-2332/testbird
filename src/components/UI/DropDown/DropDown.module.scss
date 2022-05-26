@@ -1,37 +1,31 @@
 .dropdown {
-    position: relative;
-    color: #333;
-    cursor: default;
-  }
-  
-  .dropdown .close {
+  position: relative;
+  color: #333;
+  cursor: default;
+    
+  .close {
     position: absolute;
     right: 7px;
     top: 12px;
     cursor: pointer;
   }
-  
-  .dropdown .close.open {
-    border-color: transparent transparent #999;
-    border-width: 0 5px 5px;
-  }
-  
-  .dropdown .selected-value input {
-    line-height: 1.5;
-    font-size: 1rem;
-    background-color: #fff;
-    box-shadow: 0 1px 8px rgb(0 0 0 / 20%);
-    border-radius: 2px;
-    box-sizing: border-box;
-    cursor: default;
-    outline: none;
-    padding: 8px 52px 8px 10px;
-    transition: all 200ms ease;
-    width: 100%;
-    border: none;
-  }
-  
-  .dropdown .options {
+
+  .selected-value input {
+      line-height: 1.5;
+      font-size: 1rem;
+      background-color: #fff;
+      box-shadow: 0 1px 8px rgb(0 0 0 / 20%);
+      border-radius: 2px;
+      box-sizing: border-box;
+      cursor: default;
+      outline: none;
+      padding: 8px 52px 8px 10px;
+      transition: all 200ms ease;
+      width: 100%;
+      border: none;
+    }
+
+  .options {
     background-color: #fff;
     box-shadow: 0 1px 8px rgb(0 0 0 / 20%);
     box-sizing: border-box;
@@ -42,18 +36,18 @@
     top: 100%;
     width: 100%;
     z-index: 1000;
-  }
+    
+    .option {
+      box-sizing: border-box;
+      color: rgba(51, 51, 51, 0.8);
+      cursor: pointer;
+      display: block;
+      padding: 8px 10px;
   
-  .dropdown .option {
-    box-sizing: border-box;
-    color: rgba(51, 51, 51, 0.8);
-    cursor: pointer;
-    display: block;
-    padding: 8px 10px;
+      &:hover {
+      background-color: var(--secondary-color);
+      color: #333;
+      }
+    }
   }
-  
-  .dropdown .option.selected,
-  .dropdown .option:hover {
-    background-color: var(--secondary-color);
-    color: #333;
-  }
+}
