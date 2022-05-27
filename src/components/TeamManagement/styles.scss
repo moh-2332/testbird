@@ -54,10 +54,11 @@
   padding: $large $medium;
   display: flex;
   align-items: center;
-  min-width: 280px;
+  min-width: 260px;
 
   @include tablet {
     padding: $medium;
+    min-width: 280px;
   }
 
   &__avatar {

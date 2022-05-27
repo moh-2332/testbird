@@ -1,10 +1,15 @@
 @import '../../../styles/colors';
 @import '../../../styles/dimentions';
+@import '../../../styles/media-queries';
 
 .dropdown {
   position: relative;
   cursor: default;
-  min-width: 280px;
+  min-width: 260px;
+
+  @include tablet {
+    min-width: 280px;
+  }
 
   &__control {
 
@@ -25,7 +30,7 @@
         transition: all 200ms ease;
         width: 100%;
         border: none;
-        border-bottom: 2px solid $primary;
+        border-bottom: 1px solid $primary;
         padding-bottom: $small;
       } 
     }
