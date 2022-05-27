@@ -5,17 +5,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-body {
-  --primary-color: #007672;
-  --secondary-color: #e2f4ea;
-  --accent-color: #ff8f1d;
-  --white-color: #fff;
-
-  --text-muted: #999999;
-}
-
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.remove { color: var(--accent-color); }
+.material-icons.md-12 { font-size: 0.75rem; }
+.material-icons.md-18 { font-size: 1.125rem; }
+.material-icons.remove { color: #ff8f1d; }

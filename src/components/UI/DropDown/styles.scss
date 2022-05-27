@@ -1,0 +1,81 @@
+@import '../../../styles/colors';
+@import '../../../styles/dimentions';
+
+.dropdown {
+  position: relative;
+  cursor: default;
+  min-width: 280px;
+
+  &__control {
+
+    &__selected-value {
+      padding: $large $medium;
+      position: relative;
+      box-sizing: border-box;
+      background-color: $light;
+      box-shadow: 0 1px 8px rgb(0 0 0 / 20%);
+
+
+      input {
+        font-size: 1rem;
+        background-color: #fff;
+        box-sizing: border-box;
+        cursor: default;
+        outline: none;
+        transition: all 200ms ease;
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid $primary;
+        padding-bottom: $small;
+      } 
+    }
+
+    &__close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+    }
+  }
+  
+  &__options {
+    background-color: $light;
+    box-shadow: 0 1px 8px rgb(0 0 0 / 20%);
+    box-sizing: border-box;
+    margin-top: -1px;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1000;
+    
+    &--option {
+      box-sizing: border-box;
+      cursor: pointer;
+      display: block;
+      padding: $small $medium;
+  
+      &:hover {
+        background-color: $secondary;
+      }
+    }
+  }
+
+  &__not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: $large 0;
+
+    &--title {
+      color: $primary;
+      font-size: 1.1rem;
+    }
+
+    &--description {
+      font-size: 0.725rem;
+    }
+  }
+}

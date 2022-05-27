@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux"
 
 import { memberActions } from "../../../store/member"
 
-import classes from '../styles.module.scss'
 import Card from '../../UI/Card'
 import Icon from '../../UI/Icon'
 import DropDown from '../../UI/DropDown'
 
+import '../styles.scss'
 import members from "../../../assets/data.json"
 
 const AddMember = () => {
@@ -28,12 +28,12 @@ const AddMember = () => {
 
   return (
     <Card>
-      {!showMembersList && <div className={classes['card-content']}>
-        <div className={classes['card-avatar']}>
-          <Icon className={classes.add} onClick={addClickHandler}><span className="material-icons">add</span></Icon>
+      {!showMembersList && <div className="team-member">
+        <div className="team-member__avatar">
+          <Icon className="team-member__avatar--add" onClick={addClickHandler}><span className="material-icons">add</span></Icon>
         </div>
-        <div className={classes['card-text']}>
-          <span className={`${classes.summary} ${classes.add}`}>Add team member to this test</span>
+        <div className="team-member__description">
+          <span className="team-member__description--summary add">Add team member to this test</span>
         </div>
       </div>}
       {showMembersList && <DropDown
@@ -41,6 +41,12 @@ const AddMember = () => {
         id="id"
         label="username"
         value="Select a member ..."
+        notFoundFilter={
+          {
+            title: "Team member not found.",
+            description: "Maybe she/he is not yet in your team?"
+          }
+        }
         onOptionSelected={memberSelectedHandler}
         onClose={closeHandler} />}
     </Card >

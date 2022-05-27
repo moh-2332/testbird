@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 
-import classes from "./DropDown.module.scss"
+import "./styles.scss"
 
 interface DropDownProps {
     options: Array<any>,
     id: string,
     label: string,
     value: string,
+    notFoundFilter: {
+        title: string,
+        description: string
+    }
     onOptionSelected: (value: any) => any,
     onClose: () => void,
 }
 
-const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, onOptionSelected, onClose }) => {
+const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, notFoundFilter, onOptionSelected, onClose }) => {
     const [searchKey, setSearchKey] = useState("");
 
     const optionSelectedHandler = (option: any) => {
@@ -25,27 +29,31 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, onOption
     }
 
     return (
-        <div className={classes.dropdown}>
-            <div className={classes.control}>
-                <div className={classes["selected-value"]}>
+        <div className="dropdown">
+            <div className="dropdown__control">
+                <div className="dropdown__control__selected-value">
                     <input
                         value={searchKey}
                         placeholder={value}
                         onChange={(e) => setSearchKey(e.target.value)} />
                 </div>
-                <div className={classes.close} onClick={onClose}><span className="material-icons md-18 remove">close</span></div>
+                <div className="dropdown__control__close" onClick={onClose}><span className="material-icons md-12 remove">close</span></div>
             </div>
-            <div className={classes.options}>
+            <div className="dropdown__options">
                 {filter(options).length ? filter(options).map(option => {
                     return (
                         <div
                             key={option[id]}
-                            className={`${classes.option} ${option[label] === value ? classes.selected : null}`}
+                            className="dropdown__options--option"
                             onClick={(e) => optionSelectedHandler(option)}>
                             {option[label]}
                         </div>
                     )
-                }) : <div><span>Team member not found.</span><span>Maybe she/he is not yet in your team?</span></div>}
+                }) : <div className="dropdown__not-found">
+                        <span className="dropdown__not-found--title">{notFoundFilter.title}</span>
+                        <span className="dropdown__not-found--description">{notFoundFilter.description}</span>
+                    </div>
+                }
             </div>
         </div>
     );

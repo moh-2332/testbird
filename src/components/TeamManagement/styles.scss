@@ -1,0 +1,108 @@
+@import '../../styles/colors';
+@import '../../styles/dimentions';
+@import '../../styles/media-queries';
+
+.team-management-container {
+  position: relative;
+  border: 1px solid $gray;
+  border-top: 3px solid $primary;
+  padding: $large;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    color: $gray;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $large;
+
+    h1 {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    &--link {
+      display: flex;
+      align-items: center;
+      font-size: 0.625rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: $gray;
+
+      &__title {
+        margin-right: $medium;
+
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: $large;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.team-member {
+  padding: $large $medium;
+  display: flex;
+  align-items: center;
+  min-width: 280px;
+
+  @include tablet {
+    padding: $medium;
+  }
+
+  &__avatar {
+    margin-right: $medium;
+    cursor: pointer;
+  
+    &--remove {
+      background-color: $light;
+    }
+    
+    &--add {
+      color: $primary;
+      background-color: $light;
+    }
+  }
+  
+  &__description {
+    display: flex;
+    flex-direction: column;
+  
+    &--title {
+      font-size: 1rem;
+    }
+
+    &--summary {
+      font-size: 1rem;
+      max-width: 140px;
+      font-weight: bold;
+    }
+
+    &--add { color: $primary; }
+  }
+}
+
+.show-all {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $medium;
+  cursor: pointer;
+  font-size: 0.8rem;
+}

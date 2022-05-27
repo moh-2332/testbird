@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useSelector } from "react-redux"
 
+import Member from '../../../models/member'
+
 import TeamMember from './TeamMember'
 
-import classes from '../styles.module.scss'
-import Member from '../../../models/member'
+import '../styles.scss'
 
 const TeamMembers = () => {
   const [showAll, setShowAll] = useState(false);
@@ -21,7 +22,7 @@ const TeamMembers = () => {
   return (
     <React.Fragment>
       {display(members).map(member => <TeamMember key={member.id} member={member} />)}
-      {!showAll && members.length > 5 && <div className={classes.all} onClick={showAllHandler}> <span>SHOW ALL</span> <span className="material-icons">expand_more</span></div>}
+      {!showAll && members.length > 5 && <div className="show-all" onClick={showAllHandler}> <span>SHOW ALL</span> <span className="material-icons">expand_more</span></div>}
     </React.Fragment>
   )
 }

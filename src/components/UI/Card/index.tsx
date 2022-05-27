@@ -1,10 +1,10 @@
 import React from 'react';
 
-import classes from "./Card.module.scss"
+import "./styles.scss"
 
 const Card: React.FC<{ children: any }> = ({ children }) => {
     return (
-        <div className={classes.card}>
+        <div className="card">
             {children}
         </div>
     );

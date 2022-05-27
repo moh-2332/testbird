@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import classes from './Icon.module.scss'
 import Tooltip from '../Tooltip';
+
+import './styles.scss'
 
 interface IconProps {
     children?: any;
@@ -15,7 +16,7 @@ const Icon: React.FC<IconProps> = ({ children, className, tooltipText, onClick }
 
     return (
         <div
-            className={`${classes.icon} ${className ? className : ''}`}
+            className={`icon ${className ? className : ''}`}
             onClick={() => onClick && onClick()}
             onMouseOver={() => setShowTooltip(true)}
             onMouseOut={() => setShowTooltip(false)}
