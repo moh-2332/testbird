@@ -36,7 +36,7 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, onOption
                 <div className={classes.close} onClick={onClose}><span className="material-icons md-18 remove">close</span></div>
             </div>
             <div className={classes.options}>
-                {filter(options).map(option => {
+                {filter(options).length ? filter(options).map(option => {
                     return (
                         <div
                             key={option[id]}
@@ -45,7 +45,7 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, onOption
                             {option[label]}
                         </div>
                     )
-                })}
+                }) : <div><span>Team member not found.</span><span>Maybe she/he is not yet in your team?</span></div>}
             </div>
         </div>
     );
