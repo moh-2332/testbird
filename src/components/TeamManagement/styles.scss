@@ -71,6 +71,10 @@
     
     &--add {
       color: $primary;
+      background-color: $secondary;
+    }
+
+    &--add.hovered {
       background-color: $light;
     }
   }
@@ -89,7 +93,7 @@
       font-weight: bold;
     }
 
-    &--add { color: $primary; }
+    &--summary.add { color: $primary; }
   }
 }
 
