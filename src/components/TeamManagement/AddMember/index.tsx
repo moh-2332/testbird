@@ -28,7 +28,8 @@ const AddMember = () => {
   }
 
   const addClickHandler = useCallback(() => {
-    setShowMembersList(true)
+    setShowMembersList(true);
+    setHovered(false);
   }, []);
 
   const closeHandler = () => {
