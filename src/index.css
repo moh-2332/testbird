@@ -5,6 +5,8 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.spacer { height: 30px; }
+
 .material-icons.md-12 { font-size: 0.75rem; }
 .material-icons.md-18 { font-size: 1.125rem; }
 .material-icons.remove { color: #ff8f1d; }
