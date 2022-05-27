@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useDispatch } from "react-redux"
 
 import { memberActions } from "../../../../store/member"
@@ -21,9 +21,9 @@ const TeamMember: React.FC<{ member: Member }> = ({ member }) => {
     setHovered(false);
   }
 
-  const removeMemberHandler = () => {
+  const removeMemberHandler = useCallback(() => {
     dispatch(memberActions.remove(member.id));
-  }
+  }, []);
 
   return (
     <Card>

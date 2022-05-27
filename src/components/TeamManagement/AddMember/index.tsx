@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useDispatch } from "react-redux"
 
 import { memberActions } from "../../../store/member"
@@ -27,9 +27,9 @@ const AddMember = () => {
     dispatch(memberActions.add(selectedOption));
   }
 
-  const addClickHandler = () => {
+  const addClickHandler = useCallback(() => {
     setShowMembersList(true)
-  }
+  }, []);
 
   const closeHandler = () => {
     setShowMembersList(false);
