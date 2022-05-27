@@ -49,6 +49,7 @@ const AddMember = () => {
         options={members}
         id="id"
         label="username"
+        avatar="picture"
         value="Select a member ..."
         notFoundFilter={
           {

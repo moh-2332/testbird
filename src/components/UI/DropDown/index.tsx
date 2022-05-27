@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
 import "./styles.scss"
+import Icon from '../Icon';
 
 interface DropDownProps {
     options: Array<any>,
     id: string,
     label: string,
+    avatar?: string,
     value: string,
     notFoundFilter: {
         title: string,
@@ -15,7 +17,7 @@ interface DropDownProps {
     onClose: () => void,
 }
 
-const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, notFoundFilter, onOptionSelected, onClose }) => {
+const DropDown: React.FC<DropDownProps> = ({ options, id, label, avatar, value, notFoundFilter, onOptionSelected, onClose }) => {
     const [searchKey, setSearchKey] = useState("");
 
     const optionSelectedHandler = (option: any) => {
@@ -46,7 +48,8 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, value, notFound
                             key={option[id]}
                             className="dropdown__options--option"
                             onClick={(e) => optionSelectedHandler(option)}>
-                            {option[label]}
+                            {avatar && <Icon><img src={`avatars/${option[avatar]}`} /></Icon>}
+                            <div className="dropdown__options--option__label">{option[label]}</div>
                         </div>
                     )
                 }) : <div className="dropdown__not-found">

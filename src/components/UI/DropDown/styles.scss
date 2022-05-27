@@ -53,11 +53,16 @@
     &--option {
       box-sizing: border-box;
       cursor: pointer;
-      display: block;
+      display: flex;
       padding: $small $medium;
+      align-items: center;
   
       &:hover {
         background-color: $secondary;
+      }
+
+      &__label {
+        margin-left: $medium;
       }
     }
   }
