@@ -33,8 +33,8 @@ const TeamMember: React.FC<{ member: Member }> = ({ member }) => {
           {hovered && <Icon className="team-member__avatar--remove" tooltipText="Remove user" onClick={removeMemberHandler}><span className="material-icons remove">close</span></Icon>}
         </div>
         <div className="team-member__description">
-          <div className="team-member__description--title">{member.role} {member.role === "External member" && <span className="material-icons remove md-12">emergency</span>} </div>
-          <span className="team-member__description--summary">{member.username}</span>
+          <div data-testid="member-role" className="team-member__description--title">{member.role} {member.role === "External member" && <span className="material-icons remove md-12">emergency</span>} </div>
+          <span data-testid="member-description" className="team-member__description--summary">{member.username}</span>
         </div>
       </div>
     </Card >

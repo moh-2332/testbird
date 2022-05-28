@@ -3,6 +3,7 @@
 exports[`DropDown tests Should match the snapshot 1`] = `
 <div
   className="dropdown"
+  data-testid="dropdown"
 >
   <div
     className="dropdown__control"

@@ -31,7 +31,7 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, avatar, value, 
     }
 
     return (
-        <div className="dropdown">
+        <div className="dropdown" data-testid="dropdown">
             <div className="dropdown__control">
                 <div className="dropdown__control__selected-value">
                     <input
