@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDown tests Should match the snapshot 1`] = `
+<div
+  className="dropdown"
+>
+  <div
+    className="dropdown__control"
+  >
+    <div
+      className="dropdown__control__selected-value"
+    >
+      <input
+        onChange={[Function]}
+        placeholder="select option"
+        value=""
+      />
+    </div>
+    <div
+      className="dropdown__control__close"
+      onClick={[MockFunction]}
+    >
+      <span
+        className="material-icons md-12 remove"
+      >
+        close
+      </span>
+    </div>
+  </div>
+  <div
+    className="dropdown__options"
+  >
+    <div
+      className="dropdown__options--option"
+      onClick={[Function]}
+    >
+      <div
+        className="dropdown__options--option__label"
+      >
+        username1
+      </div>
+    </div>
+  </div>
+</div>
+`;

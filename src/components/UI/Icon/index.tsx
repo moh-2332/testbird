@@ -17,6 +17,7 @@ const Icon: React.FC<IconProps> = ({ children, className, tooltipText, onClick }
     return (
         <div
             className={`icon ${className ? className : ''}`}
+            data-testid="icon"
             onClick={() => onClick && onClick()}
             onMouseOver={() => setShowTooltip(true)}
             onMouseOut={() => setShowTooltip(false)}

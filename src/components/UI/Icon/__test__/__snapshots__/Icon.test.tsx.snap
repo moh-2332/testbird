@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon tests Should match the snapshot 1`] = `
+<div
+  className="icon "
+  data-testid="icon"
+  onClick={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
+>
+  <span
+    className="material-icons"
+  >
+    home
+  </span>
+</div>
+`;

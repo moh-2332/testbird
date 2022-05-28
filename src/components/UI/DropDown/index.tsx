@@ -9,7 +9,7 @@ interface DropDownProps {
     label: string,
     avatar?: string,
     value: string,
-    notFoundFilter: {
+    notFoundFilter?: {
         title: string,
         description: string
     }
@@ -52,9 +52,9 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, avatar, value, 
                             <div className="dropdown__options--option__label">{option[label]}</div>
                         </div>
                     )
-                }) : <div className="dropdown__not-found">
-                        <span className="dropdown__not-found--title">{notFoundFilter.title}</span>
-                        <span className="dropdown__not-found--description">{notFoundFilter.description}</span>
+                }) : <div className="dropdown__not-found" data-testid="not-found">
+                        <span className="dropdown__not-found--title">{notFoundFilter?.title}</span>
+                        <span className="dropdown__not-found--description">{notFoundFilter?.description}</span>
                     </div>
                 }
             </div>
