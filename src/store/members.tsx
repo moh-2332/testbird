@@ -7,8 +7,8 @@ export interface MemberState {
 
 const initializeMemberState: MemberState = { members: [] };
 
-const memberSlice = createSlice({
-    name: "member",
+const membersSlice = createSlice({
+    name: "members",
     initialState: initializeMemberState,
     reducers: {
         add(state, action) {
@@ -21,6 +21,6 @@ const memberSlice = createSlice({
     }
 })
 
-export const memberActions = memberSlice.actions;
+export const membersActions = membersSlice.actions;
 
-export default memberSlice.reducer;
+export default membersSlice.reducer;

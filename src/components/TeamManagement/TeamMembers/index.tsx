@@ -9,7 +9,7 @@ import '../styles.scss'
 
 const TeamMembers = () => {
   const [showAll, setShowAll] = useState(false);
-  const members = useSelector((state: any) => state.member.members);
+  const members = useSelector((state: any) => state.members.members);
 
   useEffect(() => {
     if (showAll && members.length <= 5) {

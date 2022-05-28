@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { useDispatch } from "react-redux"
 
-import { memberActions } from "../../../store/member"
+import { membersActions } from "../../../store/members"
 
 import Card from '../../UI/Card'
 import Icon from '../../UI/Icon'
@@ -24,7 +24,7 @@ const AddMember = () => {
   }
 
   const memberSelectedHandler = (selectedOption: any): void => {
-    dispatch(memberActions.add(selectedOption));
+    dispatch(membersActions.add(selectedOption));
   }
 
   const addClickHandler = useCallback(() => {

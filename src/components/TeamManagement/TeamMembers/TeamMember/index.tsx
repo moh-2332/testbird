@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { useDispatch } from "react-redux"
 
-import { memberActions } from "../../../../store/member"
+import { membersActions } from "../../../../store/members"
 import Member from '../../../../models/member'
 
 import Icon from '../../../UI/Icon'
@@ -22,7 +22,7 @@ const TeamMember: React.FC<{ member: Member }> = ({ member }) => {
   }
 
   const removeMemberHandler = useCallback(() => {
-    dispatch(memberActions.remove(member.id));
+    dispatch(membersActions.remove(member.id));
   }, []);
 
   return (
