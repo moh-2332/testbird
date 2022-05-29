@@ -8,11 +8,11 @@ import Icon from '../../UI/Icon'
 import DropDown from '../../UI/DropDown'
 
 import '../styles.scss'
-import members from "../../../assets/data.json"
+import users from "../../../assets/data.json"
 
 const AddMember = () => {
   const dispatch = useDispatch();
-  const [showMembersList, setShowMembersList] = useState(false);
+  const [showUsersList, setShowUsersList] = useState(false);
   const [hovered, setHovered] = useState(false);
 
   const mouseOverHandler = () => {
@@ -28,17 +28,17 @@ const AddMember = () => {
   }
 
   const addClickHandler = useCallback(() => {
-    setShowMembersList(true);
+    setShowUsersList(true);
     setHovered(false);
   }, []);
 
   const closeHandler = () => {
-    setShowMembersList(false);
+    setShowUsersList(false);
   }
 
   return (
     <Card>
-      {!showMembersList && <div className="team-member" onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
+      {!showUsersList && <div className="team-member" onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
         <div className="team-member__avatar">
           <Icon className={`team-member__avatar--add ${hovered && "hovered"}`} onClick={addClickHandler}><span className="material-icons">add</span></Icon>
         </div>
@@ -46,8 +46,8 @@ const AddMember = () => {
           <span className="team-member__description--summary add">Add team member to this test</span>
         </div>
       </div>}
-      {showMembersList && <DropDown
-        options={members}
+      {showUsersList && <DropDown
+        options={users}
         id="id"
         label="username"
         avatar="picture"
