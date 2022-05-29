@@ -8,44 +8,44 @@ import "@testing-library/jest-dom";
 import TeamMembers from "../";
 import Member from "../../../../models/member";
 
-const members: { [key: string]: Member } = {
-    1: {
+const members: Array<Member> = [
+    {
         id: 1,
         username: "user1",
         role: "role1",
         picture: "user1.png"
     },
-    2: {
+    {
         id: 2,
         username: "user2",
         role: "role2",
         picture: "user2.png"
     },
-    3: {
+    {
         id: 3,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     },
-    4: {
+    {
         id: 4,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     },
-    5: {
+    {
         id: 5,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     },
-    6: {
+    {
         id: 6,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     }
-}
+]
 
 jest.mock('react-redux', () => ({
     useSelector: jest.fn(),
