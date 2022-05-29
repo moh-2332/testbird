@@ -17,9 +17,9 @@ const member2: Member = {
 }
 
 describe('Members redux state tests', () => {
-    it('Should initially set members to an empty array', () => {
+    it('Should initially set members to an empty object', () => {
         const state = store.getState().members;
-        expect(state.members.length).toBe(0);
+        expect(state.members).toEqual({});
     })
 
     it('Should be able to add a new member (if not exists) to the members', () => {
@@ -27,14 +27,15 @@ describe('Members redux state tests', () => {
         store.dispatch(membersActions.add(member2));
 
         let state = store.getState().members;
-        expect(state.members.length).toBe(2);
-        expect(state.members[0]).toMatchObject(member1);
+        expect(state.members).not.toEqual({});
+        expect(Object.keys(state.members)).toHaveLength(2);
+        expect(state.members[member1.id]).toMatchObject(member1);
 
         // should not add again
         store.dispatch(membersActions.add(member1));
 
         state = store.getState().members;
-        expect(state.members.length).toBe(2);
+        expect(Object.keys(state.members)).toHaveLength(2);
     })
 
     it('Should be able to remove an existing member from members', () => {
@@ -42,13 +43,13 @@ describe('Members redux state tests', () => {
         store.dispatch(membersActions.add(member2));
 
         let state = store.getState().members;
-        expect(state.members.length).toBe(2);
+        expect(Object.keys(state.members)).toHaveLength(2);
 
         // removing the member1
         store.dispatch(membersActions.remove(1));
 
         state = store.getState().members;
-        expect(state.members.length).toBe(1);
-        expect(state.members[0]).toMatchObject(member2)
+        expect(Object.keys(state.members)).toHaveLength(1);
+        expect(Object.keys(state.members)).not.toContainEqual(member1)
     })
 })

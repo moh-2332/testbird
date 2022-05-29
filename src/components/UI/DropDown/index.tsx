@@ -48,7 +48,7 @@ const DropDown: React.FC<DropDownProps> = ({ options, id, label, avatar, value, 
                             key={option[id]}
                             className="dropdown__options--option"
                             onClick={(e) => optionSelectedHandler(option)}>
-                            {avatar && <Icon><img src={`avatars/${option[avatar]}`} /></Icon>}
+                            {avatar && <Icon><img src={`avatars/${option[avatar]}`} alt="" /></Icon>}
                             <div className="dropdown__options--option__label">{option[label]}</div>
                         </div>
                     )

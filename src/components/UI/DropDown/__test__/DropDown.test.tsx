@@ -27,7 +27,7 @@ describe("DropDown tests", () => {
         const { container } = render(<DropDown options={options} id="id" label="username" value="select option" onOptionSelected={handler} onClose={handler} />);
 
         const optionsList = container.getElementsByClassName("dropdown__options--option");
-        expect(optionsList.length).toBe(1);
+        expect(optionsList).toHaveLength(1);
 
         const textBox = screen.getByRole("textbox");
         expect(textBox).toBeInTheDocument();

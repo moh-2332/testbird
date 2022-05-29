@@ -23,13 +23,13 @@ const TeamMember: React.FC<{ member: Member }> = ({ member }) => {
 
   const removeMemberHandler = useCallback(() => {
     dispatch(membersActions.remove(member.id));
-  }, []);
+  }, [dispatch, member.id]);
 
   return (
     <Card>
       <div className="team-member" onMouseOver={mouseOverHandler} onMouseOut={mouseOutHandler}>
         <div className="team-member__avatar">
-          {!hovered && <Icon><img src={`avatars/${member.picture}`} /></Icon>}
+          {!hovered && <Icon><img src={`avatars/${member.picture}`} alt="" /></Icon>}
           {hovered && <Icon className="team-member__avatar--remove" tooltipText="Remove user" onClick={removeMemberHandler}><span className="material-icons remove">close</span></Icon>}
         </div>
         <div className="team-member__description">

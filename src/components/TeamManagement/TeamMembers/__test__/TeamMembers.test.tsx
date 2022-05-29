@@ -8,44 +8,44 @@ import "@testing-library/jest-dom";
 import TeamMembers from "../";
 import Member from "../../../../models/member";
 
-const members: Array<Member> = [
-    {
+const members: { [key: string]: Member } = {
+    1: {
         id: 1,
         username: "user1",
         role: "role1",
         picture: "user1.png"
     },
-    {
+    2: {
         id: 2,
         username: "user2",
         role: "role2",
         picture: "user2.png"
     },
-    {
+    3: {
         id: 3,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     },
-    {
+    4: {
         id: 4,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     },
-    {
+    5: {
         id: 5,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     },
-    {
+    6: {
         id: 6,
         username: "user3",
         role: "role3",
         picture: "user3.png"
     }
-]
+}
 
 jest.mock('react-redux', () => ({
     useSelector: jest.fn(),
@@ -66,10 +66,10 @@ describe("AddMember tests", () => {
         render(<TeamMembers />);
 
         const allRoles = screen.getAllByTestId("member-role");
-        expect(allRoles.length).toBe(5);
+        expect(allRoles).toHaveLength(5);
 
         const allDescriptions = screen.getAllByTestId("member-description");
-        expect(allDescriptions.length).toBe(5);
+        expect(allDescriptions).toHaveLength(5);
 
         const showAll = screen.getByText(/show all/i);
         expect(showAll).toBeInTheDocument();
@@ -82,9 +82,9 @@ describe("AddMember tests", () => {
         userEvent.click(showAll);
 
         const allRoles = screen.getAllByTestId("member-role");
-        expect(allRoles.length).toBe(6);
+        expect(allRoles).toHaveLength(6);
 
         const allDescriptions = screen.getAllByTestId("member-description");
-        expect(allDescriptions.length).toBe(6);
+        expect(allDescriptions).toHaveLength(6);
     });
 });
